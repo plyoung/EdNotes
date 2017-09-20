@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8de00777c8f8c1c44bbc70fb25461a21, type: 3}
+  m_Name: NotesAsset
+  m_EditorClassIdentifier: 
+  iconName: sv_icon_dot4_pix16_gizmo
+  notes: []
+  labelExpandWidth: 0100
+  iconPos: 0000000002000000
+  iconOffs:
+  - 0
+  - 0
