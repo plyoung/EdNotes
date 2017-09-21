@@ -131,16 +131,16 @@ namespace EdNotes
 		{			
 			string[] guids = AssetDatabase.FindAssets("t:NotesAsset");
 			string fn = (guids.Length > 0 ? AssetDatabase.GUIDToAssetPath(guids[0]) : GetPackageFolder() + "NotesAsset.asset");
-			NotesAsset asset = AssetDatabase.LoadAssetAtPath<NotesAsset>(fn);
-			if (asset == null)
+			_settings = AssetDatabase.LoadAssetAtPath<NotesAsset>(fn);
+			if (_settings == null)
 			{
-				asset = ScriptableObject.CreateInstance<NotesAsset>();
-				AssetDatabase.CreateAsset(asset, fn);
+				_settings = ScriptableObject.CreateInstance<NotesAsset>();
+				AssetDatabase.CreateAsset(_settings, fn);
 				AssetDatabase.SaveAssets();
 			}
 
-			asset.UpdateIcon();
-			return asset;
+			_settings.UpdateIcon();
+			return _settings;
 		}
 
 		private static string GetPackageFolder()
