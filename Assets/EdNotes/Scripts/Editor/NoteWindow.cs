@@ -28,7 +28,7 @@ namespace EdNotes
 
 		// ------------------------------------------------------------------------------------------------------------
 
-		[MenuItem("Assets/Notes", false, 0), MenuItem("GameObject/Notes", false, 11), MenuItem("Window/Notes &N", false)]
+		[MenuItem("Assets/Notes", false, 0), MenuItem("GameObject/Notes", false, 11), MenuItem("Window/Notes", false)]
 		public static void ShowNoteWindow()
 		{
 			GetWindow<NoteWindow>("Note").UpdateNoteWidow();
