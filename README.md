@@ -2,7 +2,7 @@
 
 A simple tool to add notes to GameObject in the Hierarchy or Objects in the Project panel. The notes data in the scene are kept in a hidden object tagged as `EditorOnly` so the data will not end up in your final builds. The data concerning project objects are kept in an asset next to the this tool's scripts by default.
 
-Open the Note panel via menu: `Window > Note`. Enter some text and press [Save].
+Open the Note panel via menu: `Window > Notes`. Enter some text and press [Save].
 
 Click on the gear icon to show the Editor Notes settings where you can change the icon to use to indicate that an object has a note attached.
 
