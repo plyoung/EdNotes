@@ -12,6 +12,7 @@ namespace EdNotes
 		private static readonly GUIContent GC_Close = new GUIContent("Close");
 		private static readonly GUIContent GC_Delete = new GUIContent("X", "Remove this note");
 		private static readonly GUIContent GC_IconHead = new GUIContent("Icon: ");
+		private static readonly GUIContent GC_Head = new GUIContent();
 		private static GUIContent GC_Settings = null;
 
 		[System.NonSerialized] private Object targetObj;
@@ -30,30 +31,42 @@ namespace EdNotes
 		[MenuItem("Assets/Notes", false, 0), MenuItem("GameObject/Notes", false, 11), MenuItem("Window/Notes &N", false)]
 		public static void ShowNoteWindow()
 		{
-			if (Selection.activeObject != null)
+			GetWindow<NoteWindow>("Note").UpdateNoteWidow();
+		}
+
+		private void OnSelectionChange()
+		{
+			UpdateNoteWidow();
+		}
+
+		private void UpdateNoteWidow()
+		{
+			if (dirty && targetObj != null && targetObj != Selection.activeObject)
 			{
-				GetWindow<NoteWindow>(true, "Note").Init();
+				if (EditorUtility.DisplayDialog("EdNotes", "Unsaved changes in the object's notes. Save now?", "Yes", "No"))
+				{
+					Save();
+				}
 			}
-		}
 
-		[MenuItem("Assets/Notes", true), MenuItem("GameObject/Notes", true), MenuItem("Window/Notes &N", true)]
-		private static bool HierarchyMenuValidate()
-		{
-			return Selection.activeObject != null;
-		}
-
-		private void Init()
-		{
-			targetObj = Selection.activeObject;
-			targetGUID = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(targetObj));
-			targetGO = Selection.activeGameObject;
-			titleContent = new GUIContent("Note: " + targetObj.name);
-
+			Repaint();
 			inScene = false;
 			dirty = false;
 			isNew = false;
 			container = null;
 			note = null;
+			text = "";
+			GC_Head.text = "";
+
+			if (Selection.activeObject == null)
+			{
+				return;
+			}
+
+			targetObj = Selection.activeObject;
+			targetGUID = AssetDatabase.AssetPathToGUID(AssetDatabase.GetAssetPath(targetObj));
+			targetGO = Selection.activeGameObject;
+			GC_Head.text = targetObj.name;
 
 			if (targetGO != null && targetGO.scene.IsValid())
 			{
@@ -90,11 +103,6 @@ namespace EdNotes
 			text = note.text;
 		}
 
-		private void Update()
-		{
-			if (targetObj == null || note == null) Close();
-		}
-
 		private void OnGUI()
 		{
 			if (targetObj == null || note == null)
@@ -108,6 +116,8 @@ namespace EdNotes
 				GC_Settings = EditorGUIUtility.IconContent("_Popup");
 				GC_Settings.tooltip = "EdNotes Settings";
 			}
+
+			GUILayout.Label(GC_Head, EditorStyles.boldLabel);
 
 			EditorGUI.BeginChangeCheck();
 			text = EditorGUILayout.TextArea(text, GUILayout.ExpandHeight(true));
@@ -123,7 +133,7 @@ namespace EdNotes
 				GUI.enabled = dirty;
 				if (GUILayout.Button(GC_Save, GUILayout.Width(80))) Save();
 				GUI.enabled = true;
-				if (GUILayout.Button(GC_Close, GUILayout.Width(80))) { if (!dirty || EditorUtility.DisplayDialog("EdNotes", "Unsaved changes. Close?", "Yes", "Cancel")) Close(); }
+				//if (GUILayout.Button(GC_Close, GUILayout.Width(80))) { if (!dirty || EditorUtility.DisplayDialog("EdNotes", "Unsaved changes. Close?", "Yes", "Cancel")) Close(); }
 				GUILayout.FlexibleSpace();
 			}
 			EditorGUILayout.EndHorizontal();
@@ -131,7 +141,6 @@ namespace EdNotes
 
 		private void Save()
 		{
-			GUIUtility.keyboardControl = 0;
 			dirty = false;
 			note.text = text;
 
