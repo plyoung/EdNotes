@@ -19,3 +19,5 @@ Click on the gear icon to show the Editor Notes settings where you can change th
 [![Patreon](http://www.plyoung.com/img/buttons/patreon_s.png)](https://www.patreon.com/plyoung) 
 
 ![screenshot](https://user-images.githubusercontent.com/837362/30640573-bb962954-9e03-11e7-88e9-1d03f2379195.png)
+
+[![Video on YouTube](https://img.shields.io/badge/-YouTube-ff0000.svg?style=flat-square&logo=data%3Aimage%2Fpng%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAP1BMVEUAAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAD%2FAAA9z5kBAAAAFHRSTlMANs9GQLgs%2FJoY830K5GACQ7Qpl%2Bh2g10AAABGSURBVHgBfc85FoBACATRcVzGBfe6%2F1mNqUDC%2Fx7QXbralzQDjJOANi8ZYN0iA%2BzHmQHqJYD7EdDe%2BAet6KjeKpiiq5zrfx6SCX%2Bogq05AAAAAElFTkSuQmCC)](https://www.youtube.com/watch?v=b_s6f5JvB9Q) 
