@@ -29,7 +29,7 @@ namespace EdNotes
 
 		public static NotesContainer GetContainer(Scene scene)
 		{
-			if (cache == null)
+			if (cache == null || !cache.ContainsKey(scene))
 			{
 				cache = new Dictionary<Scene, NotesContainer>();
 				UpdateSceneCache();
@@ -56,6 +56,7 @@ namespace EdNotes
 
 		private static void SceneClosed(Scene scene)
 		{
+			if( cache == null ) return;
 			if (cache.ContainsKey(scene)) cache.Remove(scene);
 		}
 
