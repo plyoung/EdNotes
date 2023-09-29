@@ -20,6 +20,9 @@ Click on the gear icon to show the Editor Notes settings where you can change th
 
 To display the note in the Inspector pane when you click on a game object in the Hierarchy, Add Component of type `ShowEditorNote`.
 
+![editor_screenshot](https://github.com/mhardy/EdNotes/assets/115857/3acffcce-3f9b-4781-8bd7-f5aad04f80f2)
+
+
 ## Installation
 
 - Click on Code > Download Zip
