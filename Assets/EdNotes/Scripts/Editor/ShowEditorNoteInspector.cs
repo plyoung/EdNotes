@@ -31,7 +31,7 @@ public class ShowEditorNoteInspector : Editor
 		if( inCache )
 		{
 			c.Cache.TryGetValue(instanceId, out Note note);
-			EditorGUILayout.LabelField($"{note.text}", EditorStyles.whiteLargeLabel);
+			EditorGUILayout.TextArea($"{note.text}", EditorStyles.whiteLargeLabel);
 		}
 		else
 			EditorGUILayout.LabelField($"No Note has been saved for this GameObject, use Window > Notes", EditorStyles.boldLabel);
